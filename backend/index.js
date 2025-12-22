@@ -19,7 +19,7 @@ const uri = process.env.MONGO_URL;
 
 // ---------------- Middleware ----------------
 app.use(cors({
-  origin: "http://localhost:3000", // frontend URL
+  origin: "http://localhost:3000", // FRONTEND_URL set in Render environment variables
   credentials: true,
 }));
 app.use(express.json());
@@ -27,6 +27,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // ---------------- Routes ----------------
+
+// Root route
+app.get("/", (req, res) => res.send("Backend is running!"));
 
 // Auth routes
 app.use("/auth", authRoute);
