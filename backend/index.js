@@ -59,6 +59,12 @@ app.get("/allPositions", async (req, res) => {
   }
 });
 
+app.get("/db-test", async (req, res) => {
+  const count = await HoldingsModel.countDocuments();
+  res.send("Holdings count: " + count);
+});
+
+
 // Add new order
 app.post("/newOrder", async (req, res) => {
   try {
