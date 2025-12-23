@@ -19,7 +19,7 @@ const uri = process.env.MONGO_URL;
 
 // ---------------- Middleware ----------------
 app.use(cors({
-  origin: "http://localhost:3000", // FRONTEND_URL set in Render environment variables
+  origin: "https://zerodha-clone-n3t7.onrender.com/", // FRONTEND_URL set in Render environment variables
   credentials: true,
 }));
 app.use(express.json());
