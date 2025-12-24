@@ -18,10 +18,15 @@ const PORT = process.env.PORT || 3002;
 const uri = process.env.MONGO_URL;
 
 // ---------------- Middleware ----------------
-app.use(cors({
-  origin: "https://zerodha-clone-n3t7.onrender.com/", // FRONTEND_URL set in Render environment variables
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: true,          // allow all origins
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  })
+);
+app.options("*", cors());
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
